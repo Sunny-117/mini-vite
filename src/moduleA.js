@@ -1,0 +1,1 @@
+export const str = 'sunny=117'
