@@ -1,1 +1,1 @@
-export const str = 'sunny=117'
+export const str = '然叔 666'
