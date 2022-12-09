@@ -1,14 +1,33 @@
-# mini-vite
-下一代的前端工具链 Vite 核心逻辑
+<h1 align="center">Welcome to mini-vite 👋</h1>
+<p>
+  <a href="https://www.npmjs.com/package/mini-vite" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/mini-vite.svg">
+  </a>
+  <a href="https://sunny-117.github.io/mini-vite" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-pnpm 安装踩坑 @vue/runtime-core
+> 下一代的前端工具链 Vite 核心逻辑
+
+### 🏠 [Homepage](https://github.com/Sunny-117/mini-vite)
+
+## Author
+
+👤 **sunny-117**
+
+* Website: https://jzq422bol5.feishu.cn/wiki/wikcnDmhEiZBKFhsmvXoL4XOWuf
+* Github: [@sunny-117](https://github.com/sunny-117)
 
 
-
-# mini-vite 请求处理流程图
+## mini-vite 请求处理流程图
 
 ![](/req.png)
 
+## mini-vite 核心代码逻辑
 
 ```js
 
@@ -94,3 +113,11 @@ app.listen(3000, () => {
 
 
 ```
+
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
