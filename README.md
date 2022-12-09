@@ -5,6 +5,11 @@ pnpm 安装踩坑 @vue/runtime-core
 
 
 
+# mini-vite 请求处理流程图
+
+![](/req.png)
+
+
 ```js
 
 // server.js
