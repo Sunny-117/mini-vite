@@ -1,16 +1,16 @@
 import { init, parse } from 'es-module-lexer';
-import {createApp} from 'vue'
+import { createApp } from 'vue'
 
 function demo() {
-    console.log('demo')
+  console.log('demo')
 }
-demo()
+demo();
 const app = createApp()
-console.log(app)
+console.log(app);
 
 (async () => {
   await init;
-  const [imports, exports] = parse(`import {debounce} from 'lodash';import vue from 'vue';\nexport var p = 5;export const a = 1`);
+  const [imports, exports] = parse(`import {debounce} from 'lodash';import vue from 'vue';\nexport var age = 5;export const name = 'sunny'`);
   console.log(imports);
   console.log(exports);
 })();
