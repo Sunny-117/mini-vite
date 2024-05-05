@@ -7,6 +7,7 @@ specifiers:
   esbuild: ^0.14.28
   fast-glob: ^3.2.11
   fs-extra: ^10.0.1
+  hash-sum: ^2.0.0
   magic-string: ^0.26.1
   resolve: ^1.22.0
   serve-static: ^1.15.0
@@ -19,6 +20,7 @@ dependencies:
   esbuild: 0.14.54
   fast-glob: 3.3.2
   fs-extra: 10.1.0
+  hash-sum: 2.0.0
   magic-string: 0.26.7
   resolve: 1.22.8
   serve-static: 1.15.0
@@ -486,6 +488,10 @@ packages:
 
   /graceful-fs/4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+    dev: false
+
+  /hash-sum/2.0.0:
+    resolution: {integrity: sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==}
     dev: false
 
   /hasown/2.0.2:
