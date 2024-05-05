@@ -1,4 +1,5 @@
 const fs = require("fs-extra");
+const { parse } = require("url");
 
 async function transformRequest(url, server) {
     const { pluginContainer } = server;
@@ -9,8 +10,10 @@ async function transformRequest(url, server) {
     if (loadResult) {
         code = loadResult.code;
     } else {
-        code = await fs.readFile(id, "utf-8");
+        let fsPath = parse(id).pathname;
+        code = await fs.readFile(fsPath, 'utf-8')
     }
+    await server.moduleGraph.ensureEntryFromUrl(url)
     //转换文件内容
     const transformResult = await pluginContainer.transform(code, id);
     return transformResult;

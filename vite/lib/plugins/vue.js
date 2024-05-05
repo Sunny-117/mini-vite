@@ -108,7 +108,7 @@ function genStyleCode(descriptor, filename) {
             const query = `?vue&type=style&index=${i}&lang=css`;
             // TODO：路径有问题
             // const styleRequest = (filename + query).replace(/\\/g, '/');
-            const styleRequest = ('/App.vue' + query).replace(/\\/g, '/');
+            const styleRequest = ('/src/App.vue' + query).replace(/\\/g, '/');
             console.log('styleRequeststyleRequest', styleRequest)
             styleCode += `\nimport ${JSON.stringify(styleRequest)}`;
         });
