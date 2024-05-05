@@ -1,15 +1,23 @@
 const path = require('path');
 const { normalizePath } = require('./server/utils');
 const { resolvePlugins } = require('./plugins');
+const fs = require('fs-extra');
 async function resolveConfig() {
   //当前的根目录 window \\  linux /
   const root = normalizePath(process.cwd());
   const cacheDir = normalizePath(path.resolve(`node_modules/.vite`))
-  const config = {
+  let config = {
     root,
     cacheDir
   }
-  const plugins = await resolvePlugins(config)
+  const jsconfigFile = path.resolve(root, 'vite.config.js')
+  const exists = await fs.pathExists(jsconfigFile)
+  if (exists) {
+    const userConfig = require(jsconfigFile);
+    config = { ...config, ...userConfig };
+  }
+  const userPlugins = config.plugins || [];
+  const plugins = await resolvePlugins(config, userPlugins);
   config.plugins = plugins
   return config;
 }

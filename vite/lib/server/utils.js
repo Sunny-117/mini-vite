@@ -1,4 +1,4 @@
-const knownJsSrcRE = /\.js/
+const knownJsSrcRE = /\.(js|vue)/
 const isJSRequest = (url) => {
   if (knownJsSrcRE.test(url)) {
     return true

@@ -16,9 +16,24 @@ async function esBuildScanPlugin(config, deps) {
     name: 'vite:dep-scan',
     setup(build) {
       debugger
+      //X [ERROR] No loader is configured for ".vue" files: src/App.vue
+      build.onResolve(
+        {
+          filter: /\.vue$/
+        },
+        async ({ path: id, importer }) => {
+          const resolved = await resolve(id, importer)
+          if (resolved) {
+            return {
+              path: resolved.id,
+              external: true
+            }
+          }
+        }
+      )
       build.onResolve({ filter: htmlTypesRE }, async ({ path, importer }) => {
         debugger
-        console.log('用来处理html路径的', {path, importer})
+        console.log('用来处理html路径的', { path, importer })
         const resolved = await resolve(path, importer);
         if (resolved) {
           return {
@@ -29,11 +44,11 @@ async function esBuildScanPlugin(config, deps) {
       });
       build.onResolve({ filter: /.*/ }, async ({ path, importer }) => {
         debugger
-        console.log('对于其它所有的类型文件我们也进行处理', {path, importer})
+        console.log('对于其它所有的类型文件我们也进行处理', { path, importer })
         const resolved = await resolve(path, importer);
         if (resolved) {
           const id = resolved.id || resolved;
-          console.log('----->', {id})
+          console.log('----->', { id })
           const included = id.includes('node_modules');
           if (included) {
             deps[path] = id;
