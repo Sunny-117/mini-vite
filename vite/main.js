@@ -2,6 +2,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 createApp(App).mount("#app");
+console.log('环境变量', __VUE_OPTIONS_API__)
 
 // import { init, parse } from 'es-module-lexer';
 // import { createApp } from 'vue'

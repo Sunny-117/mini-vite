@@ -15,6 +15,12 @@ function vue() {
         name: "vue",
         config(config) {
             root = config.root
+            return {
+                define: {
+                    __VUE_OPTIONS_API__: true,
+                    __VUE_PROD_DEVTOOLS__: false
+                }
+            }
         },
         async load(id) {
             const { filename, query } = parseVueRequest(id);
@@ -83,7 +89,7 @@ async function transformMain(source, filename, root) {
     const scriptCode = genScriptCode(descriptor, filename);
     const templateCode = genTemplateCode(descriptor, filename);
     const stylesCode = genStyleCode(descriptor, filename)
-    console.log('scriptCode和templateCode', { scriptCode, templateCode })
+    console.log('scriptCode和templateCode', { stylesCode, scriptCode, templateCode })
     let resolvedCode = [
         stylesCode,
         templateCode,
@@ -95,6 +101,7 @@ async function transformMain(source, filename, root) {
 }
 
 function genStyleCode(descriptor, filename) {
+    console.log(filename, 'smksmkakmakmamk')
     let styleCode = '';
     if (descriptor.styles?.length) {
         descriptor.styles.forEach((style, i) => {
