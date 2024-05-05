@@ -7,7 +7,6 @@ const esbuildDepPlugin = require('./esbuildDepPlugin');
  */
 async function scanImports(config) {
   const deps = {};//key=原始的模块名 vue value是此模块的es入口模块路径
-  //"src": "C:/aproject/viteproject/node_modules/vue/dist/vue.runtime.esm-bundler.js",
   const esBuildScan = await esbuildDepPlugin(config, deps);
   await build({
     absWorkingDir: config.root,
@@ -18,6 +17,7 @@ async function scanImports(config) {
     format: 'esm',
     plugins: [esBuildScan]
   });
+  console.log('deps=>', deps)
   return deps;
 }
 module.exports = scanImports;
