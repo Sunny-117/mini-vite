@@ -6,11 +6,17 @@
 
 ## 实现静态文件中间件
 
-## 分析第三方依赖
+## 预构建
 
-## 预编译并保存 metadata
+1.在项目启动前分析依赖,找到三方包的依赖,然后进行预打包到node_modules/.vite/vue.js
+2.在返回main.js的时候,找到vue,替换成/node_modules/.vite/vue.js
+3.在客户端请求/node_modules/.vite/vue.js的时候,需要返回对应的内容
 
-## 修改导入路径
+### 分析第三方依赖
+
+### 预编译并保存 metadata
+
+### 修改导入路径
 
 ```
 修改返回的 main.js 中的 vue 的路径
