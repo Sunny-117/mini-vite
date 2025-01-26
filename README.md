@@ -15,14 +15,6 @@
 
 ### 🏠 [Homepage](https://github.com/Sunny-117/mini-vite)
 
-## Author
-
-👤 **sunny-117**
-
-* Website: https://jzq422bol5.feishu.cn/wiki/wikcnDmhEiZBKFhsmvXoL4XOWuf
-* Github: [@sunny-117](https://github.com/sunny-117)
-
-
 ## mini-vite 请求处理流程图
 
 ![](/req.png)
