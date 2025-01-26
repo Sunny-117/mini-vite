@@ -29,7 +29,7 @@ async function createOptimizeDepsRun(config) {
   }
   await fs.ensureDir(depsCacheDir);
   await fs.writeFile(metadataPath, JSON.stringify(metadata, (key, value) => {
-    console.log('metadata----->', { depsCacheDir, key, value })
+    // console.log('metadata----->', { depsCacheDir, key, value })
     if (key === 'file' || key === 'src') {
       //optimized里存的是绝对路径，此处写入硬盘的是相对于缓存目录的相对路径
       return normalizePath(path.relative(depsCacheDir, value));

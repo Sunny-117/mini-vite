@@ -33,7 +33,7 @@ async function esBuildScanPlugin(config, deps) {
       )
       build.onResolve({ filter: htmlTypesRE }, async ({ path, importer }) => {
         debugger
-        console.log('用来处理html路径的', { path, importer })
+        // console.log('用来处理html路径的', { path, importer })
         const resolved = await resolve(path, importer);
         if (resolved) {
           return {
@@ -44,15 +44,15 @@ async function esBuildScanPlugin(config, deps) {
       });
       build.onResolve({ filter: /.*/ }, async ({ path, importer }) => {
         debugger
-        console.log('对于其它所有的类型文件我们也进行处理', { path, importer })
+        // console.log('对于其它所有的类型文件我们也进行处理', { path, importer })
         const resolved = await resolve(path, importer);
         if (resolved) {
           const id = resolved.id || resolved;
-          console.log('----->', { id })
+          // console.log('----->', { id })
           const included = id.includes('node_modules');
           if (included) {
             deps[path] = id;
-            console.log('处理后的deps', deps)
+            // console.log('处理后的deps', deps)
             return {
               path,
               external: true //external设置为true的话说明这是一个外部模块，不会进行后续的打包分析，直接返回了
@@ -64,9 +64,9 @@ async function esBuildScanPlugin(config, deps) {
       });
       build.onLoad({ filter: htmlTypesRE, namespace: 'html' }, async ({ path }) => {
         debugger
-        console.log('用来处理读取内容 自定义读取器', path)
+        // console.log('用来处理读取内容 自定义读取器', path)
         let html = fs.readFileSync(path, 'utf8');
-        console.log(html.match(scriptModuleRE), '匹配结果')
+        // console.log(html.match(scriptModuleRE), '匹配结果')
         let [, scriptSrc] = html.match(scriptModuleRE);
         let js = `import ${JSON.stringify(scriptSrc)}`;
         return {
@@ -78,7 +78,7 @@ async function esBuildScanPlugin(config, deps) {
         debugger
         let ext = path.extname(id).slice(1);// .js  js
         const contents = fs.readFileSync(id, 'utf8');
-        console.log('最终内容读取结果：', contents)
+        // console.log('最终内容读取结果：', contents)
         return {
           loader: ext,
           contents

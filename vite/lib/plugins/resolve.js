@@ -8,7 +8,7 @@ function resolvePlugin({ root }) {
   return {
     name: 'vite:resolve',
     resolveId(id, importer) {// 根据你引入名字解析一个硬盘上的路径
-      console.log('resolvePlugin:------>', {id, importer, isAbs: path.isAbsolute(id)})
+      // console.log('resolvePlugin:------>', {id, importer, isAbs: path.isAbsolute(id)})
       const htmlTypesRE = /\.html$/;
       if (htmlTypesRE.test(id)) {
         return { id }
