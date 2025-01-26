@@ -39,6 +39,7 @@ function tryNodeResolve(id, importer, { root }) {
   const pkgDir = path.dirname(pkgPath)
   const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
   const entryPoint = pkg.module;
+  debugger
   const entryPointPath = path.join(pkgDir, entryPoint);
   //就是vue es module编译 的入口中
   return { id: entryPointPath }

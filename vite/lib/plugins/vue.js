@@ -36,7 +36,7 @@ function vue() {
         },
         async transform(code, id) {
             const { filename, query } = parseVueRequest(id);
-            console.log('vue-hadler: ', { id, filename })
+            // console.log('vue-hadler: ', { id, filename })
             if (filename.endsWith(".vue")) {
                 if (query.get('type') === 'style') {
                     const descriptor = await getDescriptor(filename, root);

@@ -15,7 +15,10 @@ async function scanImports(config) {
     bundle: true,
     write: false,
     format: 'esm',
-    plugins: [esBuildScan]
+    plugins: [esBuildScan],
+    loader: {
+      '.js': 'jsx'
+    }
   });
   console.log('deps=>', deps)
   return deps;
